@@ -1,0 +1,216 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<definitions>
+	<tag>
+		<name>universal</name>
+		<type>all</type>
+		<attributes>
+			<attribute type="string" group="stylesheets" name="class" />
+			<attribute type="string" group="stylesheets" name="style" />
+			<attribute type="string" group="general" name="id" />
+			<attribute type="string" group="general" name="title" />
+			<attribute type="set" group="general" name="dir">
+				<value>ltr</value>
+				<value>rtl</value>
+			</attribute>
+			<attribute type="string" group="script" name="onclick" />
+			<attribute type="string" group="script" name="ondblclick" />
+			<attribute type="string" group="script" name="onmousedown" />
+			<attribute type="string" group="script" name="onmouseup" />
+			<attribute type="string" group="script" name="onmouseover" />
+			<attribute type="string" group="script" name="onmousemove" />
+			<attribute type="string" group="script" name="onmouseout" />
+			<attribute type="string" group="script" name="onkeypress" />
+			<attribute type="string" group="script" name="onkeydown" />
+			<attribute type="string" group="script" name="onkeyup" />
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>table</name>
+		<type>parent</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>center</value>
+				<value>right</value>
+			</attribute>
+			<attribute type="int" group="border" name="border" />
+			<attribute type="size" group="general" name="width" />
+			<attribute type="color" group="general" name="bgcolor" />
+			<attribute type="int" group="general" name="cellpadding" />
+			<attribute type="int" group="general" name="cellspacing" />
+			<attribute type="string" group="general" name="summary" />
+			<attribute type="set" group="border" name="frame">
+				<value>void</value>
+				<value>above</value>
+				<value>below</value>
+				<value>hsides</value>
+				<value>lhs</value>
+				<value>rhs</value>
+				<value>vsides</value>
+				<value>box</value>
+				<value>border</value>
+			</attribute>
+			<attribute type="set" group="border" name="rules">
+				<value>none</value>
+				<value>groups</value>
+				<value>rows</value>
+				<value>cols</value>
+				<value>all</value>
+			</attribute>
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>caption</name>
+		<type>table</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>right</value>
+				<value>bottom</value>
+			</attribute>
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>thead</name>
+		<type>group</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>center</value>
+				<value>right</value>
+				<value>justify</value>
+			</attribute>
+			<attribute type="set" group="general" name="valign">
+				<value>top</value>
+				<value>middle</value>
+				<value>bottom</value>
+				<value>baseline</value>
+			</attribute>
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>tbody</name>
+		<type>group</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>center</value>
+				<value>right</value>
+				<value>justify</value>
+			</attribute>
+			<attribute type="set" group="general" name="valign">
+				<value>top</value>
+				<value>middle</value>
+				<value>bottom</value>
+				<value>baseline</value>
+			</attribute>
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>tfoot</name>
+		<type>group</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>center</value>
+				<value>right</value>
+				<value>justify</value>
+			</attribute>
+			<attribute type="set" group="general" name="valign">
+				<value>top</value>
+				<value>middle</value>
+				<value>bottom</value>
+				<value>baseline</value>
+			</attribute>
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>tr</name>
+		<type>row</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>center</value>
+				<value>right</value>
+				<value>justify</value>
+			</attribute>
+			<attribute type="set" group="general" name="valign">
+				<value>top</value>
+				<value>middle</value>
+				<value>bottom</value>
+				<value>baseline</value>
+			</attribute>
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>td</name>
+		<type>cell</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>center</value>
+				<value>right</value>
+				<value>justify</value>
+			</attribute>
+			<attribute type="set" group="general" name="valign">
+				<value>top</value>
+				<value>middle</value>
+				<value>bottom</value>
+				<value>baseline</value>
+			</attribute>
+			<attribute type="string" group="general" name="headers" />			
+			<attribute type="set" group="general" name="scope">
+				<value>row</value>
+				<value>col</value>
+				<value>rowgroup</value>
+				<value>colgroup</value>
+			</attribute>
+			<attribute type="color" group="general" name="bgcolor" />
+			<attribute type="int" group="general" name="colspan" />
+			<attribute type="int" group="general" name="rowspan" />
+			<attribute type="size" group="general" name="height" />
+			<attribute type="size" group="general" name="width" />
+			<attribute type="empty" group="general" name="nowrap" />
+		</attributes>
+	</tag>
+
+	<tag>
+		<name>th</name>
+		<type>cell</type>
+		<attributes>
+			<attribute type="set" group="general" name="align">
+				<value>left</value>
+				<value>center</value>
+				<value>right</value>
+				<value>justify</value>
+			</attribute>
+			<attribute type="set" group="general" name="valign">
+				<value>top</value>
+				<value>middle</value>
+				<value>bottom</value>
+				<value>baseline</value>
+			</attribute>
+			<attribute type="string" group="general" name="headers" />			
+			<attribute type="set" group="general" name="scope">
+				<value>row</value>
+				<value>col</value>
+				<value>rowgroup</value>
+				<value>colgroup</value>
+			</attribute>
+			<attribute type="color" group="general" name="bgcolor" />
+			<attribute type="int" group="general" name="colspan" />
+			<attribute type="int" group="general" name="rowspan" />
+			<attribute type="size" group="general" name="height" />
+			<attribute type="size" group="general" name="width" />
+			<attribute type="empty" group="general" name="nowrap" />
+		</attributes>
+	</tag>
+
+</definitions>

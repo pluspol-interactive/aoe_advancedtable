@@ -1,0 +1,5 @@
+
+tt_content.table {
+	20 = USER
+	20.userFunc = tx_aoeadvancedtable_pi1->render_table
+}
