@@ -272,8 +272,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin 
 		//*******OUTPUT*********
 		//debug($table->errorMessage);
 
-
-		return $this->cObj->stdWrap($table->getXHTML(), $conf['stdWrap.']);
+		return $table->getXHTML();
 
 	}
 
