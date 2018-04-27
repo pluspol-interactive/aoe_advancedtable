@@ -10,7 +10,7 @@ $EM_CONF[$_EXTKEY] = [
     'state' => 'beta',
     'constraints' => [
         'depends' => [
-            'typo3' => '7.6.0-7.6.99',
+            'typo3' => '8.7.0 - 8.7.99',
             'css_styled_content' => '',
         ],
     ],
