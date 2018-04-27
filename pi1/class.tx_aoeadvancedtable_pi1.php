@@ -33,12 +33,12 @@ use \TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 {
-    var $prefixId      = 'tx_aoeadvancedtable_pi1';        // Same as class name
-    var $scriptRelPath = 'pi1/class.tx_aoeadvancedtable_pi1.php';    // Path to this script relative to the extension dir.
-    var $extKey        = 'aoe_advancedtable';    // The extension key.
-    var $pi_checkCHash = true;
+    public $prefixId      = 'tx_aoeadvancedtable_pi1';        // Same as class name
+    public $scriptRelPath = 'pi1/class.tx_aoeadvancedtable_pi1.php';    // Path to this script relative to the extension dir.
+    public $extKey        = 'aoe_advancedtable';    // The extension key.
+    public $pi_checkCHash = true;
 
-    function _getTableAttributes($conf, $type)
+    private function getTableAttributes($conf, $type)
     {
 
          // Initializing:
@@ -62,7 +62,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         return $tableTagParams;
     }
 
-    function _getCellDataFromCellValue($c)
+    private function getCellDataFromCellValue($c)
     {
         $res=array();
 
@@ -108,7 +108,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
      * @return string        HTML output.
      * @access private
      */
-    function render_table($content, $conf)
+    public function render_table($content, $conf)
     {
         $content = trim($this->cObj->data['bodytext']);
 
@@ -178,7 +178,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             $lastCellInRowData=array();
             //***********Traverse each col in row*******************
             for ($col = 0; $col < $table->getColCount(); $col++) {
-                $cellData=$this->_getCellDataFromCellValue($cells[$col]);
+                $cellData=$this->getCellDataFromCellValue($cells[$col]);
                 $cellcontent=$cellData['content'];
                 //Set common cell attributes:
                 $_cellClass='';
@@ -211,9 +211,9 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                 //***Check colspan and rowspan******
                 if ($cellData['colspan']) {
-                    $this->_setColspanForTable($col, $row, $table);
+                    $this->setColspanForTable($col, $row, $table);
                 } elseif ($cellData['rowspan']) {
-                    $this->_setRowspanForTable($col, $row, $table);
+                    $this->setRowspanForTable($col, $row, $table);
                 } //***********no cellspan and rowspan: add content to the cell.*******************
                 else {
                     $cellcontent=$this->cObj->stdWrap($cellcontent, $conf['innerStdWrap.']);
@@ -237,7 +237,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         // Set header type:
         $type = intval($this->cObj->data['layout']);
         // Table tag params.
-        $tableTagParams = $this->_getTableAttributes($conf, $type);
+        $tableTagParams = $this->getTableAttributes($conf, $type);
         foreach ($tableTagParams as $key => $value) {
             if ($value !='') {
                 $table->setTableAttribute($key, $value);
@@ -277,7 +277,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         return $table->getXHTML();
     }
 
-    function _setColspanForTable($col, $row, &$table)
+    private function setColspanForTable($col, $row, &$table)
     {
         $table->setCellContent($col, $row, '[colspan]');    //dumy set attribute (used for detecting multiple rowspans)
         //search the first cell in col whith colspan and increase it
@@ -295,7 +295,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $table->setCellAttribute($j, $row, 'colspan', $_colspanValue+1);
     }
 
-    function _setRowspanForTable($col, $row, &$table)
+    private function setRowspanForTable($col, $row, &$table)
     {
         $table->setCellContent($col, $row, '[rowspan]');    //dummy set attribute (used for detecting multiple rowspans)
         //reverse search for the first cell in row whith rowspan and increase it
