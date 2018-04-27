@@ -22,10 +22,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('th_exttableservice').'class.tx_thexttableservice.php';
-
-
-
 /**
  * Plugin 'Advanced Table Rendering' for the 'aoe_advancedtable' extension.
  *
@@ -158,9 +154,9 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
          //***************************************
          //***********RENDERING*******************
 
-         include_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('th_exttableservice') .'class.tx_thexttableservice.php';
+         include_once __DIR__ . 'class.tx_thexttableservice.php';
          $table = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_thexttableservice');
-         $table->loadDefinitions(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('aoe_advancedtable').'pi1/exttabledefinitions.xml');
+         $table->loadDefinitions(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('aoe_advancedtable') . 'pi1/exttabledefinitions.xml');
 
          $table->insertRows(0, $rCount-1);
          $table->insertCols(0, $cols-1);
