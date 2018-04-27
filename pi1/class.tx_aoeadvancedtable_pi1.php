@@ -22,6 +22,8 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
  * Plugin 'Advanced Table Rendering' for the 'aoe_advancedtable' extension.
  *
@@ -77,9 +79,9 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $procInstr.=$c[$i];
             }
             //parse procInst
-            $attributepairs=\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(';', $procInstr);
+            $attributepairs=GeneralUtility::trimExplode(';', $procInstr);
             foreach ($attributepairs as $attributepair) {
-                $attribute=\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('=', $attributepair);
+                $attribute=GeneralUtility::trimExplode('=', $attributepair);
                 $res['attributes'][$attribute[0]]=$attribute[1];
             }
             $res['content']=substr($c, $i+1);
@@ -143,7 +145,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
 
           // Split into single lines (will become table-rows):
-         $rows = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(chr(10), $content);
+         $rows = GeneralUtility::trimExplode(chr(10), $content);
          reset($rows);
 
           // Find number of columns to render:
@@ -155,7 +157,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
          //***********RENDERING*******************
 
          include_once __DIR__ . 'class.tx_thexttableservice.php';
-         $table = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_thexttableservice');
+         $table = GeneralUtility::makeInstance('tx_thexttableservice');
          $table->loadDefinitions(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('aoe_advancedtable') . 'pi1/exttabledefinitions.xml');
 
          $table->insertRows(0, $rCount-1);
