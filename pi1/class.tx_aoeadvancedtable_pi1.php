@@ -156,7 +156,7 @@ class tx_aoeadvancedtable_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
          //***************************************
          //***********RENDERING*******************
 
-         include_once __DIR__ . 'class.tx_thexttableservice.php';
+         include_once __DIR__ . '/class.tx_thexttableservice.php';
          $table = GeneralUtility::makeInstance('tx_thexttableservice');
          $table->loadDefinitions(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('aoe_advancedtable') . 'pi1/exttabledefinitions.xml');
 
